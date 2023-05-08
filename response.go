@@ -7,12 +7,12 @@ import (
 )
 
 type Body struct {
-	Code int         `json:"code"`
-	Msg  string      `json:"msg"`
-	Data interface{} `json:"data,omitempty"`
+	Code int    `json:"code"`
+	Msg  string `json:"msg"`
+	Data any    `json:"data,omitempty"`
 }
 
-func Response(w http.ResponseWriter, resp interface{}, err error) {
+func Response(w http.ResponseWriter, resp any, err error) {
 	var body Body
 	if err != nil {
 		body.Code = -1
